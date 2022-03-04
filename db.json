@@ -10,9 +10,19 @@
   ],
   "favourites": [
     {
-      "movieId": 460465,
+      "movieId": 578701,
       "userId": 3,
       "id": 1
+    },
+    {
+      "movieId": 632357,
+      "userId": 3,
+      "id": 2
+    },
+    {
+      "movieId": 460465,
+      "userId": 3,
+      "id": 3
     }
   ],
   "movies-popular": [

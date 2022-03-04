@@ -52,11 +52,12 @@ export class MovieService {
       .pipe(take(1))
       .toPromise()) as AuthData;
     this.preferiti.push(movie);
+    let count = 0;
     movie.like = true;
     const data: Favourite = {
       movieId: movie.id,
       userId: user.user.id,
-      id: 1,
+      id: count++
     };
     console.log(data);
     return this.http.post<Favourite>(
