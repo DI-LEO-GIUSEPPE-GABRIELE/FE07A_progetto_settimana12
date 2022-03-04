@@ -6,11 +6,11 @@ import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   template: `
     <div class="container mt-4">
-      <ul class="list-group">
+      <ul class="list-group text-white">
         <p>Utente: {{welcomeUser}}</p>
+        <hr>
         <li *ngFor="let preferito of preferiti">Lista preferiti: {{preferito.title}}</li>
       </ul>
-      <hr />
       <router-outlet></router-outlet>
     </div>
   `,
