@@ -25,7 +25,7 @@ export class MovieService {
     );
   }
 
-  buttaFilm(): void {
+  getMovies(): void {
     this.http
       .get<Movie[]>('http://localhost:4201/api/movies-popular')
       .subscribe((res) => {
@@ -33,15 +33,6 @@ export class MovieService {
         console.log(this.movies[0].poster_path);
       });
 
-    /*
-  ngOnInit():void{
-    this.loadMovies();
-  }
-  loadMovies(http: HttpClient): void {
-  this.http.get('http://localhost:4200/api/movies-popular').subscribe((res) => {
-    movies = <Movie[]>res;
-    console.log(res);
-  }); */
   }
   addFavorite(movie: Movie) {
     this.preferiti.push(movie);

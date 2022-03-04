@@ -62,7 +62,7 @@ export class MoviesPage implements OnInit {
       this.movies = this.movieSrv.movies;
     }, 20);
     if(!this.movies){
-      this.movieSrv.buttaFilm()
+      this.movieSrv.getMovies()
     }
   }
 
