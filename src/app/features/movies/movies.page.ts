@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   template: `
-    <div class="container">
+    <div class="container mt-5">
       <div class="row justify-content-between">
         <div *ngFor="let movie of movies" class="card text-center mb-5" style="width: 18rem; height: 40rem">
           <img
@@ -17,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
             <p class="card-text">{{ movie.overview }}</p>
             <p>{{ movie.popularity }}</p>
             <p>{{ movie.release_date }}</p>
-            <button *ngIf="movie.like" (click)="unlike(movie)">
+            <button class="rounded bg-light" *ngIf="movie.like" (click)="unlike(movie)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -32,7 +32,7 @@ import { HttpClient } from '@angular/common/http';
                 />
               </svg>
             </button>
-            <button *ngIf="!movie.like" (click)="like(movie)">
+            <button class="rounded bg-light" *ngIf="!movie.like" (click)="like(movie)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
