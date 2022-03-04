@@ -39,12 +39,13 @@ export class AuthService {
   }
 
   login(data: { email: string; password: string }) {
-    return this.http.post<AuthData>(`${this.URL}/login`, data).pipe(
+    return this.http.post<AuthData>(`${this.URL}/login`, data).pipe(
       tap((val) => {
         console.log(val);
       }),
       tap((data) => {
         this.authSubject.next(data);
+
         localStorage.setItem('user',JSON.stringify(data))
         const expirationDate = this.jwtHelper.getTokenExpirationDate(data.accessToken) as Date
         this.autoLogout(expirationDate)
@@ -69,13 +70,13 @@ export class AuthService {
 
   signup(data: SignupData) {
     return this.http
-      .post(`${this.URL}/register`, data)
+      .post(`${this.URL}/register`, data)
       .pipe(catchError(this.errors));
   }
 
   logout(){
     this.authSubject.next(null)
-    this.router.navigate([""])
+    this.router.navigate(["/"])
     localStorage.removeItem('user')
     if (this.autologoutTimer) {
       clearTimeout(this.autologoutTimer)

@@ -14,22 +14,21 @@ import { AuthService } from 'src/app/auth/auth.service';
       <router-outlet></router-outlet>
     </div>
   `,
-  styles: [`
-    * {
-      color:white;
-    }
-  `],
+  styles: [],
 })
 export class FavouritesPage implements OnInit {
   welcomeUser!: string | undefined;
   users!: User[];
-  welcomePref!: string | undefined;
   preferiti = this.movieSrv.preferiti;
   constructor( private authSrv: AuthService, private movieSrv: MovieService) {}
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.preferiti = this.movieSrv.preferiti;
+    }, 20);
     this.authSrv.user$.subscribe((data) => {
       this.welcomeUser = data?.user.name;
-    })
+      this.movieSrv.getFavourite();
+    });
   }
 }

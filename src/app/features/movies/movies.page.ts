@@ -5,20 +5,21 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   template: `
-    <div class="container mt-5">
-      <div class="row justify-content-between">
-        <div *ngFor="let movie of movies" class="card text-center mb-5 p-2" style="width: 18rem; height: 40rem">
+    <div *ngFor="let movie of movies" class="container text-center">
+      <div class="row justify-content-center">
+        <div style="width: 18rem;">
           <img
+            src=""
+            alt=""
             class="img-fluid"
             srcset="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
           />
-          <div class="card-body" style="overflow: scroll;">
+          <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
             <p class="card-text">{{ movie.overview }}</p>
-            <a [routerLink]="['movies-details']">dettagli</a>
             <p>{{ movie.popularity }}</p>
             <p>{{ movie.release_date }}</p>
-            <button class="rounded bg-light" *ngIf="movie.like" (click)="unlike(movie)">
+            <button *ngIf="movie.like" (click)="unlike(movie)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -33,7 +34,7 @@ import { HttpClient } from '@angular/common/http';
                 />
               </svg>
             </button>
-            <button class="rounded bg-light" *ngIf="!movie.like" (click)="like(movie)">
+            <button *ngIf="!movie.like" (click)="like(movie)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -56,19 +57,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MoviesPage implements OnInit {
   constructor(private movieSrv: MovieService, private http: HttpClient) {}
-  movies: Movie[] | undefined;
+  movies=this.movieSrv.movies;
 
   ngOnInit(): void {
     setInterval(() => {
       this.movies = this.movieSrv.movies;
     }, 20);
     if(!this.movies){
-      this.movieSrv.getMovies()
+      this.movieSrv.buttaFilm();
     }
   }
 
   async like(movie: Movie) {
-   await (await (this.movieSrv.addFavorite(movie))).toPromise();
+     await(await (this.movieSrv.addFavorite(movie))).toPromise();
   }
 
   unlike(movie: Movie) {
