@@ -14,7 +14,11 @@ import { AuthService } from 'src/app/auth/auth.service';
       <router-outlet></router-outlet>
     </div>
   `,
-  styles: [],
+  styles: [`
+    * {
+      color:white;
+    }
+  `],
 })
 export class FavouritesPage implements OnInit {
   welcomeUser!: string | undefined;

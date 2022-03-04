@@ -4,7 +4,7 @@ import { AuthService } from './auth/auth.service';
 @Component({
   selector: 'app-navbar',
   template: `
-    <nav class="navbar navbar-expand navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-dark bg-dark text-white">
       <div class="container-fluid">
         <button
           class="navbar-toggler"
@@ -17,9 +17,8 @@ import { AuthService } from './auth/auth.service';
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand" href="#">Hidden brand</a>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo01">
+          <ul class="navbar-nav">
             <li class="nav-item" *ngIf="isLoggedIn">
               <a
                 class="nav-link"
@@ -28,7 +27,7 @@ import { AuthService } from './auth/auth.service';
                 >Movies</a
               >
             </li>
-            <li class="nav-item" *ngIf="isLoggedIn">
+            <li class="nav-item me-5" *ngIf="isLoggedIn">
               <a
                 class="nav-link"
                 [routerLink]="['/favourites']"
