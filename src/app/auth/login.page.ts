@@ -1,25 +1,43 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { AuthService } from "./auth.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   template: `
-    <div class="row justify-content-center">
-      <div class="col-6">
-      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
-          {{errorMessage}}
+    <div class="container bg-dark mt-5 p-4 rounded">
+      <div class="row justify-content-center text-center">
+        <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+          {{ errorMessage }}
         </div>
-        <form  #form="ngForm" (ngSubmit)="onsubmit(form)" >
+        <form #form="ngForm" (ngSubmit)="onsubmit(form)">
           <div class="form-group">
-            <label for="email">Email</label>
-            <input ngModel name="email" class="form-control" type="email" id="email" />
+            <label for="email" class="text-white mb-2">Email</label>
+            <input
+              ngModel
+              name="email"
+              class="form-control mb-2"
+              type="email"
+              id="email"
+            />
           </div>
           <div class="form-group">
-            <label for="pass">Password</label>
-            <input ngModel name="password" class="form-control" type="password" id="pass" />
+            <label for="pass" class="text-white mb-2">Password</label>
+            <input
+              ngModel
+              name="password"
+              class="form-control mb-2"
+              type="password"
+              id="pass"
+            />
           </div>
-          <button [routerLink]="['/movies']" class="btn btn-primary mt-3" [disabled]="isLoading" type="submit">Accedi
-          <span
+          <button
+            [routerLink]="['/movies']"
+            class="btn btn-primary m-3"
+            [disabled]="isLoading"
+            type="submit"
+          >
+            Accedi
+            <span
               *ngIf="isLoading"
               class="spinner-border spinner-border-sm"
               role="status"
@@ -27,36 +45,40 @@ import { AuthService } from "./auth.service";
             ></span>
           </button>
         </form>
-        <p>Oppure <a [routerLink]="['/signup']">Registrati</a></p>
+        <p class="text-white">
+          Oppure <a [routerLink]="['/signup']">Registrati</a>
+        </p>
       </div>
     </div>
 
     <router-outlet></router-outlet>
   `,
-  styles: [],
+  styles: [
+    `
+      .container {
+        width: 30em;
+      }
+    `,
+  ],
 })
 export class LoginPage implements OnInit {
   isLoading = false;
-  errorMessage = undefined
-  constructor(private authSrv:AuthService,private router:Router) {}
+  errorMessage = undefined;
+  constructor(private authSrv: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-
-  }
-
-  async onsubmit(form:any){
-    console.log(form)
+  async onsubmit(form: any) {
+    console.log(form);
 
     try {
-      await this.authSrv.login(form.value).toPromise()
-      form.reset()
-      this.errorMessage=undefined
-      this.router.navigate(['/movies'])
-
-    } catch (error:any) {
-      this.errorMessage = error
-      console.error(error)
+      await this.authSrv.login(form.value).toPromise();
+      form.reset();
+      this.errorMessage = undefined;
+      this.router.navigate(['/movies']);
+    } catch (error: any) {
+      this.errorMessage = error;
+      console.error(error);
     }
   }
 }
