@@ -23,6 +23,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class FavouritesPage implements OnInit {
   welcomeUser!: string | undefined;
   users!: User[];
+  welcomePref!: string | undefined;
   preferiti = this.movieSrv.preferiti;
   constructor( private authSrv: AuthService, private movieSrv: MovieService) {}
 

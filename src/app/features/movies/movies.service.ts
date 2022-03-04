@@ -35,18 +35,6 @@ export class MovieService {
       });
   }
 
-  // async addFavorites(movie: Movie) {
-  //   const user: AuthData = (await this.authSrv.user$
-  //     .pipe(take(1))
-  //     .toPromise()) as AuthData;
-  //   this.preferiti.push(movie);
-  //   movie.like = true;
-  //   this.http.post<Favourite>('http://localhost:4201/api/favourites', {
-  //     userId: user.user.id,
-  //     movieId: movie.id,
-  //   });
-  // }
-
   async addFavorite(movie: Movie) {
     const user: AuthData = (await this.authSrv.user$
       .pipe(take(1))
@@ -59,21 +47,11 @@ export class MovieService {
       userId: user.user.id,
       id: count++
     };
-    console.log(data);
     return this.http.post<Favourite>(
       'http://localhost:4201/api/favourites',
       data
     );
   }
-
-  // async addFavorites(movieId: number) {
-  //   const user = (await this.authSrv.user$.pipe(take(1)).toPromise()) as AuthData;
-  //   console.log(user.user.id);
-  //   return this.http.post<Favourite>('http://localhost:4201/api/favourites', {
-  //     userId: user.user.id,
-  //     movieId
-  //   })
-  // }
 
   removeFavourite(movie: Movie) {
     this.preferiti.splice(this.preferiti.indexOf(movie), 1);
