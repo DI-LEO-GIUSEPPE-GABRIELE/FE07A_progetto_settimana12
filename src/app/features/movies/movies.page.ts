@@ -7,14 +7,12 @@ import { HttpClient } from '@angular/common/http';
   template: `
     <div class="container">
       <div class="row justify-content-between">
-        <div *ngFor="let movie of movies" class="card text-center" style="width: 18rem;">
+        <div *ngFor="let movie of movies" class="card text-center mb-5" style="width: 18rem; height: 40rem">
           <img
-            src=""
-            alt=""
             class="img-fluid"
             srcset="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
           />
-          <div class="card-body">
+          <div class="card-body" style="overflow: scroll;">
             <h5 class="card-title">{{ movie.title }}</h5>
             <p class="card-text">{{ movie.overview }}</p>
             <p>{{ movie.popularity }}</p>
