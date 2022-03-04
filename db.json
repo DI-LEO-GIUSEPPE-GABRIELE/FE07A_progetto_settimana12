@@ -1,23 +1,13 @@
 {
   "users": [
     {
-      "email": "gatto@miao",
-      "password": "$2a$10$d0TQtCbvl9xsOcM5jVrg..msiezCFUOEDGOcUAgnKjITytIf.hnra",
-      "name": "gatto",
-      "surname": "miai",
-      "id": 1,
-      "preferiti":""
-    },
-    {
-      "email": "miao@miao",
-      "password": "$2a$10$IR70I9JZN0qPA9rO1itJ7us8B6I3ZM3LgyNAKBHDYE9wnugHN3lOa",
-      "name": "luigi",
-      "surname": "moretti",
-      "id": 2,
-      "preferiti":""
+      "email": "zipipp@gmail.com",
+      "password": "$2a$10$R0cTFdr9cMpiu.3CYAWHK.ZTnLZxsJbNR7s2VtqjJJIIab1ZR//9W",
+      "name": "giuseppe",
+      "surname": "zipippo",
+      "id": 3
     }
   ],
-
   "movies-popular": [
     {
       "adult": false,
