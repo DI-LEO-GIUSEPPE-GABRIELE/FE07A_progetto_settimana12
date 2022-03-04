@@ -21,11 +21,9 @@ export class MovieService {
     const user: AuthData = (await this.authSrv.user$
       .pipe(take(1))
       .toPromise()) as AuthData;
-    console.log(user.accessToken);
     const movies = await this.http
       .get<Movie[]>('http://localhost:4201/api/movies-popular')
       .toPromise();
-    console.log(user.accessToken);
     this.movies = movies;
     if (!this.preferiti) {
       this.getFavourite();
@@ -44,7 +42,6 @@ export class MovieService {
       userId: user.user.id,
       id: count++,
     };
-    console.log(data);
     return this.http.post<Favourite>(
       'http://localhost:4201/api/favourites',
       data
@@ -61,8 +58,6 @@ export class MovieService {
         `http://localhost:4201/api/favourites?userId=${user.user.id}`
       )
       .subscribe(async (res) => {
-        console.log(res);
-        console.log(this.movies);
         await this.getMovies();
         for (let i of res) {
           for (let j of this.movies!) {
@@ -74,7 +69,6 @@ export class MovieService {
             }
           }
         }
-        console.log(this.preferiti);
       });
   }
 
@@ -82,7 +76,6 @@ export class MovieService {
     const user: AuthData = (await this.authSrv.user$
       .pipe(take(1))
       .toPromise()) as AuthData;
-    console.log(user.accessToken);
     movie.like = false;
     this.http
       .delete(`http://localhost:4201/api/favourites/${movie.codicePreferito}`)

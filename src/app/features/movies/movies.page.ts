@@ -15,8 +15,7 @@ import { HttpClient } from '@angular/common/http';
           <div class="card-body">
             <h4 class="card-title">{{ movie.title }}</h4>
            <div class="card-text">
-              <p><a class="text-danger" [routerLink]="['movies-details']">Scopri la trama...</a></p>
-              <!-- <p class="card-text">{{ movie.overview }}</p> -->
+              <p class="card-text">{{ movie.overview }}</p>
               <p>{{ movie.popularity }}</p>
               <p>{{ movie.release_date }}</p>
            </div>
