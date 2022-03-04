@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   template: `
     <div class="container text-center">
       <div class="row justify-content-between">
-        <div *ngFor="let movie of movies" class="card mt-5 p-3 bg-dark text-white rounded" style="width: 18rem; margin: 0 auto;">
+        <div *ngFor="let movie of movies" class="card mt-5 p-3 bg-dark text-white rounded" style="width: 18rem; height: 40rem; margin: 0 auto; overflow-y:scroll;">
           <img
             class="img-fluid rounded"
             srcset="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
