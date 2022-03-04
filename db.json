@@ -17,59 +17,24 @@
   ],
   "favourites": [
     {
-      "movieId": 578701,
+      "movieId": 460465,
       "userId": 3,
       "id": 1
     },
     {
-      "movieId": 632357,
+      "movieId": 567189,
       "userId": 3,
       "id": 2
     },
     {
-      "movieId": 460465,
+      "movieId": 567189,
       "userId": 3,
       "id": 3
     },
     {
-      "movieId": 460465,
+      "movieId": 578701,
       "userId": 3,
       "id": 4
-    },
-    {
-      "movieId": 460465,
-      "userId": 3,
-      "id": 5
-    },
-    {
-      "movieId": 567189,
-      "userId": 3,
-      "id": 6
-    },
-    {
-      "movieId": 578701,
-      "userId": 3,
-      "id": 7
-    },
-    {
-      "movieId": 567189,
-      "userId": 3,
-      "id": 8
-    },
-    {
-      "movieId": 578701,
-      "userId": 3,
-      "id": 9
-    },
-    {
-      "movieId": 567189,
-      "userId": 4,
-      "id": 11
-    },
-    {
-      "movieId": 567189,
-      "userId": 3,
-      "id": 12
     }
   ],
   "movies-popular": [
