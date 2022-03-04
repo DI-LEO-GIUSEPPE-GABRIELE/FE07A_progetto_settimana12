@@ -10,9 +10,7 @@ const routes: Routes = [
   {
     canActivate:[AuthGuard],
     path: '',
-    component: FavouritesPage,
-    canActivateChild:[AuthGuard]
-
+    component: FavouritesPage
   }
 
 ];

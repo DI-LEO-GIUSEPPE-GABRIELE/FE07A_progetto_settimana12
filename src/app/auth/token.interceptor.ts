@@ -30,7 +30,6 @@ export class TokenInterceptor implements HttpInterceptor {
             `Bearer ${user?.accessToken}`
           ),
         });
-
         return next.handle(newReq);
       })
     );

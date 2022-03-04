@@ -17,12 +17,11 @@ export class MovieService {
   favoritesCounter = 0;
   constructor(private http: HttpClient, private authSrv: AuthService) {}
 
-  async buttaFilm(): Promise<void> {
+  async getMovies(): Promise<void> {
     const user: AuthData = (await this.authSrv.user$
       .pipe(take(1))
       .toPromise()) as AuthData;
     console.log(user.accessToken);
-
     const movies = await this.http
       .get<Movie[]>('http://localhost:4201/api/movies-popular')
       .toPromise();
@@ -64,12 +63,13 @@ export class MovieService {
       .subscribe(async (res) => {
         console.log(res);
         console.log(this.movies);
-        await this.buttaFilm();
+        await this.getMovies();
         for (let i of res) {
           for (let j of this.movies!) {
             if (i.movieId == j.id) {
               this.preferiti!.push(j);
-              this.preferiti![this.preferiti!.indexOf(j)].codicePreferito = i.id;
+              this.preferiti![this.preferiti!.indexOf(j)].codicePreferito =
+                i.id;
               j.like = true;
             }
           }
@@ -77,13 +77,13 @@ export class MovieService {
         console.log(this.preferiti);
       });
   }
+
   async removeFavourite(movie: Movie) {
     const user: AuthData = (await this.authSrv.user$
       .pipe(take(1))
       .toPromise()) as AuthData;
     console.log(user.accessToken);
     movie.like = false;
-
     this.http
       .delete(`http://localhost:4201/api/favourites/${movie.codicePreferito}`)
       .subscribe();
@@ -95,7 +95,6 @@ export class MovieService {
       case 404:
         mess = 'errore nella chiamata';
         break;
-
       default:
         mess = 'qualcosa non va controlla la connessione';
         break;
