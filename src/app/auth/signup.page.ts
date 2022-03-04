@@ -6,54 +6,53 @@ import { AuthService } from './auth.service';
 @Component({
   template: `
     <div class="container bg-dark mt-5 p-4 rounded">
-      <div class="row justify-content-center">
-        <div class="col-6">
+    <div class="row justify-content-center text-center">
           <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
             {{ errorMessage }}
           </div>
           <form #form="ngForm" (ngSubmit)="onsubmit(form)">
             <div class="form-group">
-              <label for="name">Nome</label>
+              <label class="text-white mb-2" for="name">Nome</label>
               <input
                 ngModel
                 name="name"
-                class="form-control"
+                class="form-control mb-2"
                 type="text"
                 id="name"
               />
             </div>
             <div class="form-group">
-              <label for="cognome">Cognome</label>
+              <label class="text-white mb-2" for="cognome">Cognome</label>
               <input
                 ngModel
                 name="surname"
-                class="form-control"
+                class="form-control mb-2"
                 type="text"
                 id="cognome"
               />
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
+              <label class="text-white mb-2" for="email">Email</label>
               <input
                 ngModel
                 name="email"
-                class="form-control"
+                class="form-control mb-2"
                 type="email"
                 id="email"
               />
             </div>
             <div class="form-group">
-              <label for="pass">Password</label>
+              <label class="text-white mb-2" for="pass">Password</label>
               <input
                 ngModel
                 name="password"
-                class="form-control"
+                class="form-control mb-2"
                 type="password"
                 id="pass"
               />
             </div>
             <button
-              class="btn btn-primary mt-3"
+              class="btn btn-primary m-3"
               [disabled]="isLoading"
               type="submit"
             >
@@ -66,12 +65,17 @@ import { AuthService } from './auth.service';
               ></span>
             </button>
           </form>
-          <p>Oppure <a [routerLink]="['']">Accedi</a></p>
+          <p class="text-white mb-2">Oppure <a [routerLink]="['']">Accedi</a></p>
         </div>
-      </div>
     </div>
   `,
-  styles: [],
+  styles: [
+    `
+      .container {
+        width: 30em;
+      }
+    `,
+  ]
 })
 export class SignupPage implements OnInit {
   isLoading = false;

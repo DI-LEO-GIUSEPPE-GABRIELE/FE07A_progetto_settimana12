@@ -59,7 +59,7 @@ import { AuthService } from './auth.service';
         width: 30em;
       }
     `,
-  ],
+  ]
 })
 export class LoginPage implements OnInit {
   isLoading = false;
