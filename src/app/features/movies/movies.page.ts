@@ -67,9 +67,14 @@ export class MoviesPage implements OnInit {
     }
   }
 
-  like(movie: Movie) {
-    this.movieSrv.addFavorite(movie);
+  async like(movie: Movie) {
+   await (await (this.movieSrv.addFavorite(movie))).toPromise();
   }
+
+//   async like(movie: Movie) {
+//     await(this.movieSrv.addFavorite(movie)).toPromise();
+//  }
+
 
   unlike(movie: Movie) {
     this.movieSrv.removeFavourite(movie);

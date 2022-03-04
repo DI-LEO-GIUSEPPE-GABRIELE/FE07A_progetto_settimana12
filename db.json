@@ -8,6 +8,13 @@
       "id": 3
     }
   ],
+  "favourites": [
+    {
+      "movieId": 460465,
+      "userId": 3,
+      "id": 1
+    }
+  ],
   "movies-popular": [
     {
       "adult": false,
