@@ -15,6 +15,7 @@ import { HttpClient } from '@angular/common/http';
           <div class="card-body" style="overflow: scroll;">
             <h5 class="card-title">{{ movie.title }}</h5>
             <p class="card-text">{{ movie.overview }}</p>
+            <a [routerLink]="['movies-details']">dettagli</a>
             <p>{{ movie.popularity }}</p>
             <p>{{ movie.release_date }}</p>
             <button class="rounded bg-light" *ngIf="movie.like" (click)="unlike(movie)">
