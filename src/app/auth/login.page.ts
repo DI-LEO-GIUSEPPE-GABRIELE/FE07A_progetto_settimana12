@@ -27,6 +27,7 @@ import { AuthService } from "./auth.service";
             ></span>
           </button>
         </form>
+        <p>Oppure <a [routerLink]="['/signup']">Registrati</a></p>
       </div>
     </div>
 

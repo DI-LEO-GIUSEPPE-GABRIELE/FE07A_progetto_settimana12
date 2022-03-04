@@ -5,9 +5,9 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   template: `
-    <div *ngFor="let movie of movies" class="container text-center">
-      <div class="row justify-content-center">
-        <div style="width: 18rem;">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div *ngFor="let movie of movies" class="card text-center" style="width: 18rem;">
           <img
             src=""
             alt=""

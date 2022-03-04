@@ -65,6 +65,7 @@ import { AuthService } from "./auth.service";
             ></span>
           </button>
         </form>
+        <p>Oppure <a [routerLink]="['']">Accedi</a></p>
       </div>
     </div>
   `,
