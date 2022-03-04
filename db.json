@@ -6,6 +6,13 @@
       "name": "giuseppe",
       "surname": "zipippo",
       "id": 3
+    },
+    {
+      "email": "gabriele@jimbo",
+      "password": "$2a$10$9fFB0Y/1cIZIqbg56Dv6vOttgOPA20qZPKTIxk9zZw480qebiZy6a",
+      "name": "gabriele",
+      "surname": "jimbo",
+      "id": 4
     }
   ],
   "favourites": [
@@ -58,6 +65,16 @@
       "movieId": 460465,
       "userId": 3,
       "id": 10
+    },
+    {
+      "movieId": 567189,
+      "userId": 4,
+      "id": 11
+    },
+    {
+      "movieId": 567189,
+      "userId": 3,
+      "id": 12
     }
   ],
   "movies-popular": [

@@ -31,8 +31,23 @@ export class MovieService {
       .get<Movie[]>('http://localhost:4201/api/movies-popular')
       .subscribe((res) => {
         this.movies = <Movie[]>res;
-        console.log(this.movies[0].poster_path);
       });
+  }
+
+  async getFavorite():Promise<void>{
+    const user: AuthData = (await this.authSrv.user$
+      .pipe(take(1))
+      .toPromise()) as AuthData;
+    this.http.get<Favourite[]>('http://localhost:4201/api/favourites')
+    .subscribe((res) => {
+      for (let i of res){
+        for (let j of this.movies!){
+          if(i.movieId==j.id){
+            this.preferiti.push(j);
+          }
+        }
+      }
+    });
   }
 
   async addFavorite(movie: Movie) {
